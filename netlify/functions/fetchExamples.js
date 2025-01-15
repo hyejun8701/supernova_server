@@ -20,11 +20,12 @@ exports.handler = async function(event, context) {
     // 예문 추출
     const examples = [];
     const exampleList = document.querySelector('#English + ol');
+    
     if (exampleList) {
       exampleList.querySelectorAll('li').forEach((element) => {
-        const text = element.textContent.trim();
-        if (text && text.length > 10) {
-          examples.push(text);
+        const exampleText = element.querySelector('.h-usage-example i')?.textContent.trim();
+        if (exampleText && exampleText.length > 10) {
+          examples.push(exampleText);
         }
       });
     }
